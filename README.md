@@ -18,7 +18,7 @@ require_once __DIR__ . '/../src/controllers.php';
 $app->run();
 ```
 
-First, the app is created in `src/app.php` and the Twig Service Provider is loaded':
+First, the app is created in `src/app.php` and the Twig Service Provider is loaded:
 
 ```php
 <?php
