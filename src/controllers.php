@@ -1,13 +1,14 @@
 <?php
 
 $app->get('/', function() use ($app) {
-    return $app['twig']->render('hello.twig', array(
-        'name' => 'World',
-    ));
+    return $app['twig']->render('home.twig');
 })
 ->bind('home');
 
-$app->get('/goodbye', function() use ($app) {
+$app->get('/about', function() use ($app) {
+    return $app['twig']->render('about.twig');
+})->bind('about');
 
-    return $app['twig']->render('goodbye.twig');
-})->bind('goodbye');
+$app->get('/contact', function() use ($app) {
+    return $app['twig']->render('contact.twig');
+})->bind('contact');
