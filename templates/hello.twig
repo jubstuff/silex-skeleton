@@ -1,2 +1,8 @@
+{% extends "layout.html" %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block content %}
 <h1>Hello {{name}}</h1>
 <h2><a href="{{ app.url_generator.generate('goodbye') }}">Goodbye!</a></h2>
+{% endblock %}
