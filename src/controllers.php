@@ -27,11 +27,16 @@ $app->match('/contact', function(Request $request) use ($app) {
 
     if($form->isValid()) {
         $data = $form->getData();
-        var_dump($data);
 
-        //TODO manage form data
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Hello from ASSA')
+            ->setFrom(array($data['email']))
+            ->setTo(array('giustinob@gmail.com'))
+            ->setBody(sprintf("Message from %s\n\n%s", $data['name'], $data['message']));
 
-        //return $app->redirect('/');
+        $app['mailer']->send($message);
+
+        return $app->redirect('/');
     }
 
     return $app['twig']->render('contact.twig', array('form' => $form->createView()));
