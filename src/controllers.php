@@ -20,17 +20,18 @@ $app->match('/contact', function(Request $request) use ($app) {
     $form = $app['form.factory']->createBuilder('form', $data)
         ->add('name')
         ->add('email')
-        ->add('message')
+        ->add('message', 'textarea')
         ->getForm();
 
     $form->handleRequest($request);
 
     if($form->isValid()) {
         $data = $form->getData();
+        var_dump($data);
 
         //TODO manage form data
 
-        return $app->redirect('/');
+        //return $app->redirect('/');
     }
 
     return $app['twig']->render('contact.twig', array('form' => $form->createView()));
