@@ -18,9 +18,9 @@ $app->match('/contact', function(Request $request) use ($app) {
     );
 
     $form = $app['form.factory']->createBuilder('form', $data)
-        ->add('name')
-        ->add('email')
-        ->add('message', 'textarea')
+        ->add('name', 'text', array('attr' => array('class' => 'form-control')))
+        ->add('email', 'text', array('attr' => array('class' => 'form-control')))
+        ->add('message', 'textarea', array('attr' => array('class' => 'form-control')))
         ->getForm();
 
     $form->handleRequest($request);

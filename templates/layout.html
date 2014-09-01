@@ -2,9 +2,16 @@
 <html>
 <head>
 <title>{% block title %}{% endblock %} - A Simple Silex Application</title>
+    {% block css %}
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../web/css/main.css">
+    {% endblock %}
 </head>
 <body>
 {% include 'navigation.html' %}
-{% block content %}{% endblock %}
+<div class="container assa">
+    {% block content %}{% endblock %}
+</div>
 </body>
 </html>

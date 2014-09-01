@@ -6,9 +6,9 @@
 <h1>I am the contact page</h1>
 
 <form action="#" method="post">
-    {{ form_widget(form) }}
+    {{ form_widget(form, {'attr': { 'class': 'contact'}}) }}
 
-    <input type="submit" name="submit">
+    <input type="submit" class="btn btn-default submit" name="submit">
 </form>
 
 {% endblock %}
