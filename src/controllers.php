@@ -1,6 +1,6 @@
 <?php
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Validator\Constraints as Assert;
 $app->get('/', function() use ($app) {
     return $app['twig']->render('home.twig');
 })
@@ -18,9 +18,16 @@ $app->match('/contact', function(Request $request) use ($app) {
     );
 
     $form = $app['form.factory']->createBuilder('form', $data)
-        ->add('name', 'text', array('attr' => array('class' => 'form-control')))
-        ->add('email', 'text', array('attr' => array('class' => 'form-control')))
-        ->add('message', 'textarea', array('attr' => array('class' => 'form-control')))
+        ->add('name', 'text', array(
+                'constraints' => array(new Assert\NotBlank()),
+                'attr' => array('class' => 'form-control')
+            ))
+        ->add('email', 'text', array(
+                'attr' => array('class' => 'form-control')
+            ))
+        ->add('message', 'textarea', array(
+                'attr' => array('class' => 'form-control')
+            ))
         ->getForm();
 
     $form->handleRequest($request);
