@@ -19,8 +19,8 @@ $app->match('/contact', function(Request $request) use ($app) {
 
     $form = $app['form.factory']->createBuilder('form', $data)
         ->add('name', 'text', array(
+                'attr' => array('class' => 'form-control'),
                 'constraints' => array(new Assert\NotBlank()),
-                'attr' => array('class' => 'form-control')
             ))
         ->add('email', 'text', array(
                 'attr' => array('class' => 'form-control')
